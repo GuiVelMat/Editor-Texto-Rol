@@ -1,0 +1,54 @@
+<body>
+    <div class="p-6">
+        <!-- BOTONES -->
+        <section class="mb-3 grid grid-cols-2 gap-2 text-center sm:flex sm:gap-2">
+            <button class="bg-slate-600 p-2 rounded-lg font-bold text-white flex items-center justify-center"
+                (click)="insertMarkdown('**Texto en negrita**')">
+                <span class="material-icons">format_bold</span>
+            </button>
+            <button class="bg-slate-600 p-2 rounded-lg font-bold text-white flex items-center justify-center"
+                (click)="insertMarkdown('_Texto en cursiva_')">
+                <span class="material-icons">format_italic</span>
+            </button>
+            <button class="bg-slate-600 p-3 rounded-lg font-semibold text-white flex items-center justify-center"
+                (click)="insertMarkdown('_[texto]_')">
+                Descr
+            </button>
+            <button class="bg-slate-600 p-3 rounded-lg font-semibold text-white flex items-center justify-center"
+                (click)="insertMarkdown('— Dialogo')">
+                Dialogo
+            </button>
+            <button class="bg-slate-600 p-3 rounded-lg font-semibold text-white flex items-center justify-center"
+                (click)="insertMarkdown('— Hola, buenas. _[Dice Oskar]_ — ¿Qué tal están? \n\n')">
+                Ej 1
+            </button>
+            <button class="bg-slate-600 p-3 rounded-lg font-semibold text-white flex items-center justify-center"
+                (click)="insertMarkdown('— Hola, buenas. \n\n _[Dice Oskar]_ \n\n — ¿Qué tal están? \n')">
+                Ej 2
+            </button>
+        </section>
+
+        <!-- CUADROS DE TEXTO -->
+        <section class=" grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="input-container">
+                <form [formGroup]="markdownForm" class="space-y-4">
+                    <textarea formControlName="markdownText" placeholder="Escribe Markdown aquí..." rows="10" cols="50"
+                        class="w-full p-4 border bg-gray-600 border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:border-zinc-400"></textarea>
+                </form>
+            </div>
+
+            <div class="preview-container bg-slate-700 p-6 rounded-lg shadow-md min-h-60 flex flex-col justify-between">
+                <h3 class="text-xl font-semibold mb-2">Vista previa:</h3>
+                <div class="bg-zinc-600 flex-grow rounded-xl shadow-md">
+                    <div [innerHTML]="htmlContent" class="prose max-w-none p-5"></div>
+                </div>
+
+                <div class="flex justify-center sm:justify-end mt-5">
+                    <button class="p-3 bg-zinc-400 rounded-xl flex items-center" (click)="copyToClipboard()">
+                        <span class="material-icons mr-2">content_copy</span> Copiar Texto
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
