@@ -49,6 +49,13 @@ export class TextoRolComponent {
     }
   }
 
+  deleteText() {
+    const textAreaControl = this.markdownForm.get('markdownText');
+    if (textAreaControl) {
+      textAreaControl.setValue(''); // Limpia el campo de texto
+    }
+  }
+
   copyToClipboard() {
     const textAreaControl = this.markdownForm.get('markdownText');
     if (textAreaControl) {
