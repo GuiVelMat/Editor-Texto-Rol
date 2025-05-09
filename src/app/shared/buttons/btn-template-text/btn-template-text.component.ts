@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-btn-template-text',
+  selector: 'panel-buttons',
   standalone: true,
   imports: [],
   templateUrl: './btn-template-text.component.html',
