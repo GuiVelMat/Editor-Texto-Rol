@@ -9,9 +9,7 @@ import { BtnDarkThemeComponent } from '../shared/buttons/btn-dark-theme/btn-dark
   selector: 'app-root',
   imports: [
     RouterOutlet,
-    SidebarComponent,
     MatDialogModule,
-    BtnDarkThemeComponent
   ],
   templateUrl: './app.component.html',
 })
