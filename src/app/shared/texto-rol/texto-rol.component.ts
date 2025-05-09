@@ -1,15 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { marked } from 'marked';
-import { createToast } from '../../Utils/create-toastr';
+import { BtnTemplateTextComponent } from '../buttons/btn-template-text/btn-template-text.component';
+import { BtnCopyTextComponent } from '../buttons/btn-copy-text/btn-copy-text.component';
+import { BtnDeleteTextComponent } from '../buttons/btn-delete-text/btn-delete-text.component';
 
 
 @Component({
   selector: 'app-texto-rol',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, BtnTemplateTextComponent, BtnCopyTextComponent, BtnDeleteTextComponent],
   templateUrl: './texto-rol.component.html',
 })
 export class TextoRolComponent {
@@ -40,31 +41,7 @@ export class TextoRolComponent {
     });
   }
 
-  insertMarkdown(text: string) {
-    const textAreaControl = this.markdownForm.get('markdownText');
-    if (textAreaControl) {
-      const currentText = textAreaControl.value || '';
-      const updatedText = currentText + text; // Añade el texto al final
-      textAreaControl.setValue(updatedText);
-    }
-  }
-
-  deleteText() {
-    const textAreaControl = this.markdownForm.get('markdownText');
-    if (textAreaControl) {
-      textAreaControl.setValue(''); // Limpia el campo de texto
-    }
-  }
-
-  copyToClipboard() {
-    const textAreaControl = this.markdownForm.get('markdownText');
-    if (textAreaControl) {
-      const textToCopy = textAreaControl.value;
-      navigator.clipboard.writeText(textToCopy).then(() => {
-        createToast.success('Texto copiado');
-      }).catch(err => {
-        createToast.error('Error al copiar');
-      });
-    }
+  get markdownControl(): FormControl {
+    return this.markdownForm.get('markdownText') as FormControl;
   }
 }

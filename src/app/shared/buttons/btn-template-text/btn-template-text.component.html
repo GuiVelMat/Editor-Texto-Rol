@@ -1,0 +1,32 @@
+<section class="mb-3 grid grid-cols-2 gap-2 text-center sm:flex sm:gap-2">
+    <!-- Negrita -->
+    <button class="bg-slate-600 p-2 rounded-lg font-bold text-white flex items-center justify-center"
+        (click)="insertText('**Texto en negrita**')">
+        <span class="material-icons">format_bold</span>
+    </button>
+    <!-- Cursiva -->
+    <button class="bg-slate-600 p-2 rounded-lg font-bold text-white flex items-center justify-center"
+        (click)="insertText('_Texto en cursiva_')">
+        <span class="material-icons">format_italic</span>
+    </button>
+    <!-- Descripcion -->
+    <button class="bg-slate-600 p-3 rounded-lg font-semibold text-white flex items-center justify-center"
+        (click)="insertText('_[texto]_')">
+        Descr
+    </button>
+    <!-- Dialogo -->
+    <button class="bg-slate-600 p-3 rounded-lg font-semibold text-white flex items-center justify-center"
+        (click)="insertText('— Dialogo')">
+        Dialogo
+    </button>
+    <!-- Ejemplo 1 -->
+    <button class="bg-slate-600 p-3 rounded-lg font-semibold text-white flex items-center justify-center"
+        (click)="insertText('— Hola, buenas. _[Dice Oskar]_ — ¿Qué tal están? \n\n')">
+        Ej 1
+    </button>
+    <!-- Ejemplo 2 -->
+    <button class="bg-slate-600 p-3 rounded-lg font-semibold text-white flex items-center justify-center"
+        (click)="insertText('— Hola, buenas. \n\n _[Dice Oskar]_ \n\n — ¿Qué tal están? \n')">
+        Ej 2
+    </button>
+</section>
