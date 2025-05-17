@@ -18,6 +18,7 @@ export class ShareButtonComponent {
 
       try {
         await navigator.share({
+          title: 'Comparte el texto',
           text: textToShare,
         });
         // createToast.success('Texto compartido');
