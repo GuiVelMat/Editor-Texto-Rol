@@ -18,8 +18,8 @@ export class ShareButtonComponent {
 
       try {
         await navigator.share({
-          title: 'Comparte el texto',
-          text: textToShare,
+          title: 'Selecciona discord y envía el texto',
+          // text: textToShare,
         });
         // createToast.success('Texto compartido');
         console.log('Texto compartido');
