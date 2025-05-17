@@ -23,6 +23,9 @@
                 <div class="flex justify-evenly sm:justify-end mt-5 gap-2">
                     <app-btn-delete-text [control]="markdownControl" />
                     <app-btn-copy-text [control]="markdownControl" />
+                    @if (isMobile) {
+                    <app-share-button [control]="markdownControl" />
+                    }
                 </div>
             </div>
         </section>

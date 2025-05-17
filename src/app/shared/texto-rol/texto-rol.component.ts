@@ -6,17 +6,19 @@ import { BtnTemplateTextComponent } from '../buttons/btn-template-text/btn-templ
 import { BtnCopyTextComponent } from '../buttons/btn-copy-text/btn-copy-text.component';
 import { BtnDeleteTextComponent } from '../buttons/btn-delete-text/btn-delete-text.component';
 import { distinctUntilChanged } from 'rxjs';
+import { ShareButtonComponent } from '../buttons/share-button/share-button.component';
 
 
 @Component({
   selector: 'app-texto-rol',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, BtnTemplateTextComponent, BtnCopyTextComponent, BtnDeleteTextComponent],
+  imports: [CommonModule, ReactiveFormsModule, BtnTemplateTextComponent, BtnCopyTextComponent, BtnDeleteTextComponent, ShareButtonComponent],
   templateUrl: './texto-rol.component.html',
 })
 export class TextoRolComponent {
   markdownForm: FormGroup;
   htmlContent: string = '';
+  isMobile: boolean = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
   constructor(private fb: FormBuilder) {
     this.markdownForm = this.fb.group({
